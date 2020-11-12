@@ -1,0 +1,13 @@
+#Version of Docker Compose
+version: '3' 
+
+ #It is like a type of ccontainer
+ # By adding these services together in this docker-compose file, Two container can now communicate with each other, and they will be residing under the same network. We ndont need any additional steps to connect this two container. Docker Compose will do that automatically.
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: always
+    build: .
+    ports: 
+      - "3000:8081" # "-" represents array - "3000:8081", "3001:8082"
